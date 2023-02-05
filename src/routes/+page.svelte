@@ -1,2 +1,9 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<div>
+
+    <form action="?/createArticle" method='POST'>
+        <input type="text" name='title'>
+        <textarea name="content" id="" cols="30" rows="10"></textarea>
+        <button>add article</button>
+    </form>
+
+</div>
