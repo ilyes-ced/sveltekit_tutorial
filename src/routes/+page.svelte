@@ -16,7 +16,10 @@
         <div class="columns">
 
             <div class="column">
-                <p class="title">With block</p>
+                <p class="title">Articles</p>
+                {#if articles.length === 0}
+                <span class="tag is-danger title">no articles submited</span>
+                {/if}
                 {#each articles as article}
 
                     <article class="message is-danger">
@@ -27,7 +30,7 @@
                             </form>
                         </div>
                         <div class="message-body">
-                            { article.title }
+                            { article.content }
                         </div>
                     </article>
                 {/each}
@@ -41,16 +44,16 @@
                 <form action="?/createArticle" method='POST'>
                     <div class="block">
                         <div class="field">
-                          <label class="label" for='title'>Title</label>
+                          <label class="label" for='title' >Title</label>
                           <div class="control">
-                            <input class="input" type="text" name='title' placeholder="Text input">
+                            <input class="input" required type="text" name='title' placeholder="Text input">
                           </div>
                         </div>
 
                         <div class="field">
                           <label class="label" for='content'>Content</label>
                           <div class="control">
-                            <textarea class="textarea" name='content' placeholder="Textarea"></textarea>
+                            <textarea class="textarea" required name='content' placeholder="Textarea"></textarea>
                           </div>
                         </div>
                         <button class="button is-primary">Button</button>
@@ -73,14 +76,13 @@
 <style>
 
     #main{
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        padding-top: 50px;
         height: 100vh;
     }
     .column{
-                
+        height: calc( 100vh - 50px );
         overflow-y: scroll;
+        
     }
     /*#edit{
         aspect-ratio: 1/1;
