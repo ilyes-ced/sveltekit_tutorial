@@ -18,7 +18,7 @@ export const actions: Actions = {
             content: string
         }
         try{
-            await prisma.Article.create({
+            await prisma.article.create({
                 data: { title, content }
             })
         }catch(err){
